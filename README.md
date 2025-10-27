@@ -3,7 +3,7 @@
 
 # Inferior Mind
 
-**Sviluppatore:** [Il tuo nome]
+**Sviluppatore:** Victor Mereuta
 
 ## Descrizione del progetto
 
