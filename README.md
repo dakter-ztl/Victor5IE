@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# inferior_mind
+
 
 # Inferior Mind
 
