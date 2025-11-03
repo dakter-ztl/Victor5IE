@@ -1,8 +1,9 @@
-
+<<<<<<< HEAD
+# inferior_mind
 
 # Inferior Mind
 
-**Sviluppatore:** Victor Mereuta
+**Sviluppatore:** [Il tuo nome]
 
 ## Descrizione del progetto
 
@@ -44,7 +45,10 @@ Inferior Mind è una versione semplificata del classico gioco da tavolo Mastermi
 - **Flutter** - Framework per lo sviluppo cross-platform
 - **Dart** - Linguaggio di programmazione
 
+## Come eseguire il progetto
 
+
+=======
 # Victor_5IE
 Materiali utilizzati per la 5IE
 >>>>>>> 8918b23b2cbc53e16ffd3a1cf421f4a9d88afea4
