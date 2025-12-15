@@ -1,16 +1,32 @@
-# chrono
+Chrono 
+Deadline: 23:59 02/11/2025
 
-A new Flutter project.
+Chrono è un semplice cronometro (stopwatch) realizzato con Flutter/Dart che sfrutta gli Stream per aggiornare l’interfaccia in tempo reale.
+Caratteristiche principali
 
-## Getting Started
+Aggiornamento continuo del tempo tramite un ticker stream.
+Visualizzazione del tempo in minuti e secondi in modo chiaro e leggibile.
+Due Floating Action Button (FAB) per il controllo completo del cronometro:
+Primo bottone: cicla tra i valori di stato START, STOP e RESET.
+Secondo bottone: cicla tra i valori di stato PAUSE e RESUME.
+Gestione accurata della correlazione tra i due stream (ticker e secondi) per mantenere la sincronizzazione del cronometro.
+Funzionamento tecnico
 
-This project is a starting point for a Flutter application.
+Ticker Stream
+All’avvio dell’app, un ticker genera eventi a intervalli regolari (ogni frazione di secondo).
+Ogni evento viene chiamato tuck (il tipo del valore è definito dal progettista).
 
-A few resources to get you started if this is your first Flutter project:
+Stream dei secondi
+Un altro stream riceve gli eventi del ticker.
+Genera un nuovo valore ogni secondo, rappresentando i secondi trascorsi.
+Questo stream alimenta l’interfaccia utente, mostrando minuti e secondi in formato leggibile.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Correlazione tra stream
+Lo stream dei secondi si basa sul ticker: in pratica c’è un pipe tra ticker e secondi.
+Questo garantisce precisione e sincronizzazione tra l’aggiornamento continuo e la visualizzazione.
+Interfaccia utente
+Visualizzazione principale: minuti e secondi (frazione di minuto in secondi).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Controlli in basso a destra:
+FAB 1: START → STOP → RESET
+FAB 2: PAUSE → RESUME
