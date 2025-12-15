@@ -88,7 +88,7 @@ class HandleConnection {
       }
     });
 
-    clients.forEach((address, clientSocket) { // Rinominato client in clientSocket per evitare ambiguità
+    clients.forEach((address, clientSocket) {
       if (clientSocket != sender) {
         clientSocket.write("${senderName ?? 'Anonimo'}: $m\n");
       }
