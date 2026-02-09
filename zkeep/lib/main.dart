@@ -27,15 +27,12 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  // lista che contiene i dati dal db
   List<Map<String, dynamic>> journalList = [];
   bool isLoading = true;
 
-  // controller per i campi di testo
   final TextEditingController titleController = TextEditingController();
   final TextEditingController contentController = TextEditingController();
 
-  // funzione per caricare i dati
   void refreshJournals() async {
     final data = await DatabaseHelper.instance.getItems();
     setState(() {
@@ -50,7 +47,6 @@ class HomePageState extends State<HomePage> {
     refreshJournals();
   }
 
-  // mostra il form per aggiungere note
   void showForm(int? id) async {
     titleController.text = '';
     contentController.text = '';
@@ -95,7 +91,6 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-  // aggiunge elemento al db
   Future<void> addItem() async {
     await DatabaseHelper.instance.createItem(
       titleController.text,
@@ -104,7 +99,6 @@ class HomePageState extends State<HomePage> {
     refreshJournals();
   }
 
-  // elimina elemento dal db
   void deleteItem(int id) async {
     await DatabaseHelper.instance.deleteItem(id);
     ScaffoldMessenger.of(context).showSnackBar(
