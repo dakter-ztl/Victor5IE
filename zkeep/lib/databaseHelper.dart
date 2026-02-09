@@ -22,8 +22,8 @@ class DatabaseHelper {
   Future createDb(Database db, int version) async {
     await db.execute('''
       CREATE TABLE items (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        title TEXT,
+        id INT PRIMARY KEY AUTOINCREMENT,
+        title VARCHAR(30),
         content TEXT
       )
     ''');
