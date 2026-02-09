@@ -67,8 +67,6 @@ class NoteCard extends StatelessWidget {
                 .toList(),
             TextButton.icon(
               onPressed: () {
-                // Usiamo read per eseguire l'azione senza resettare lo stato dei widget
-
                 context
                     .read<NoteListNotifier>()
                     .addTodoToNote(note, 'Nuovo elemento');

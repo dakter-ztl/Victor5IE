@@ -29,19 +29,16 @@ class DatabaseHelper {
     ''');
   }
 
-  // crea nuovo elemento
   Future<int> createItem(String title, String content) async {
     final db = await instance.database;
     return await db.insert('items', {'title': title, 'content': content});
   }
 
-  // leggi tutti gli elementi
   Future<List<Map<String, dynamic>>> getItems() async {
     final db = await instance.database;
     return await db.query('items', orderBy: "id DESC");
   }
 
-  // elimina elemento
   Future<int> deleteItem(int id) async {
     final db = await instance.database;
     return await db.delete('items', where: 'id = ?', whereArgs: [id]);
