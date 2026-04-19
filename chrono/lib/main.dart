@@ -6,6 +6,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,12 +19,14 @@ class MyApp extends StatelessWidget {
 }
 
 class PaginaCronometro extends StatefulWidget {
+  const PaginaCronometro({super.key});
+
   @override
   _PaginaCronometroState createState() => _PaginaCronometroState();
 }
 
 class _PaginaCronometroState extends State<PaginaCronometro> {
-  StreamController<int> _controllerSecondi = StreamController<int>();
+  final StreamController<int> _controllerSecondi = StreamController<int>();
   StreamSubscription<int>? _subscriptionTicker;
   StreamSubscription<int>? _subscriptionSecondi;
   
@@ -161,14 +165,14 @@ class _PaginaCronometroState extends State<PaginaCronometro> {
                 _resetta();
               }
             },
+            tooltip: !_inEsecuzione 
+                ? 'Start' 
+                : (_inEsecuzione && !_inPausa ? 'Stop' : 'Reset'),
             child: Icon(
               !_inEsecuzione
                   ? Icons.play_arrow
                   : (_inEsecuzione && !_inPausa ? Icons.stop : Icons.refresh),
             ),
-            tooltip: !_inEsecuzione 
-                ? 'Start' 
-                : (_inEsecuzione && !_inPausa ? 'Stop' : 'Reset'),
           ),
           SizedBox(width: 16),
           // Secondo FAB: PAUSE <-> RESUME
@@ -183,9 +187,9 @@ class _PaginaCronometroState extends State<PaginaCronometro> {
                 }
               }
             },
-            child: Icon(_inPausa ? Icons.play_arrow : Icons.pause),
             tooltip: _inPausa ? 'Resume' : 'Pause',
             backgroundColor: _inEsecuzione ? Colors.blue : Colors.grey,
+            child: Icon(_inPausa ? Icons.play_arrow : Icons.pause),
           ),
         ],
       ),

@@ -64,13 +64,12 @@ class NoteCard extends StatelessWidget {
                         ),
                       ],
                     ))
-                .toList(),
+                ,
             TextButton.icon(
               onPressed: () {
                 context
                     .read<NoteListNotifier>()
                     .addTodoToNote(note, 'Nuovo elemento');
-                ;
               },
               icon: const Icon(Icons.add, size: 18),
               label: const Text('Aggiungi To Do'),

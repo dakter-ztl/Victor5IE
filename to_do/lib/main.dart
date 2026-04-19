@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   
-  runApp(MyApp()); 
+  runApp(const MyApp()); 
 }
 
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(), 
+      home: const HomeScreen(), 
       debugShowCheckedModeBanner: false, 
       theme: ThemeData(primarySwatch: Colors.purple), 
     );
@@ -70,7 +70,7 @@ class HomeScreen extends StatefulWidget {
 Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Todo Application",
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -84,7 +84,7 @@ Widget build(BuildContext context) {
         foregroundColor: Colors.white,
       ),
       body: Container(
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: Column(
           children: [
             Expanded(
@@ -102,9 +102,9 @@ Widget build(BuildContext context) {
                       // Card background color
                       color: Colors.green, 
                       child: Container(
-                        margin: EdgeInsets.only(left: 20),
+                        margin: const EdgeInsets.only(left: 20),
                         alignment: Alignment.center,
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: Row(
                           children: [
                             Expanded(
@@ -113,7 +113,7 @@ Widget build(BuildContext context) {
                                   
                                 // Display the task text
                                 todoList[index], 
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20),
@@ -129,20 +129,20 @@ Widget build(BuildContext context) {
                                   updateIndex = index;
                                 });
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.edit,
                                 size: 30,
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                             
                             // Delete button
                             IconButton(
                               onPressed: () {
                                 deleteItem(index);
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.delete,
                                 size: 30,
                                 color: Colors.white,
@@ -169,14 +169,14 @@ Widget build(BuildContext context) {
                           decoration: InputDecoration(
                             focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.green,
                                 )),
                             filled: true,
                             
                             // Placeholder text
                             labelText: 'Create Task....', 
-                            labelStyle: TextStyle(
+                            labelStyle: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
@@ -184,7 +184,7 @@ Widget build(BuildContext context) {
                         ),
                       ),
                     ),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     
                     // Floating action button for adding/updating tasks
                     FloatingActionButton(
