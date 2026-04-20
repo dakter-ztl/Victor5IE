@@ -1,5 +1,5 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '13.0'
+platform :ios, '13.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -29,8 +29,12 @@ flutter_ios_podfile_setup
 
 target 'Runner' do
   use_frameworks!
+  use_modular_headers! # Aggiunto per migliorare la compatibilità dei moduli
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+  
+  # Se hai cancellato la cartella test, puoi anche rimuovere questo blocco RunnerTests,
+  # ma lasciarlo non fa danni se il target esiste in Xcode.
   target 'RunnerTests' do
     inherit! :search_paths
   end
@@ -39,5 +43,17 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
+    
+    target.build_configurations.each do |config|
+      # RISOLUZIONE ERRORI SQFLITE:
+      # 1. Permette gli include con doppi apici (necessario per sqflite_darwin)
+      config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+      
+      # 2. Definisce il modulo correttamente per evitare "could not build module"
+      config.build_settings['DEFINES_MODULE'] = 'YES'
+      
+      # 3. Forza l'architettura corretta (evita conflitti con vecchi simulatori)
+      config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+    end
   end
 end

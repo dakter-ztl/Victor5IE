@@ -7,13 +7,21 @@ class ServizioApi {
   static const String _urlBase = 'http://172.20.10.3:3000';
   static String get urlBase => _urlBase;
 
-  static const Duration _timeout = Duration(seconds: 5);
+  static const Duration _timeout = Duration(seconds: 10);
   static const Map<String, String> _intestazioni = {'Content-Type': 'application/json'};
 
   static Future<List<Genere>> ottieniGeneri() async {
     final risposta = await http.get(Uri.parse('$urlBase/generi')).timeout(_timeout);
-    final dati = jsonDecode(risposta.body);
-    return (dati as List).map((e) => Genere.daJson(e as Map<String, dynamic>)).toList();
+    
+    if (risposta.statusCode == 200) {
+      final dati = jsonDecode(risposta.body);
+      if (dati is List) {
+        return dati.map((e) => Genere.daJson(e as Map<String, dynamic>)).toList();
+      } else {
+        return (dati['generi'] as List).map((e) => Genere.daJson(e as Map<String, dynamic>)).toList();
+      }
+    }
+    throw Exception('Errore nel caricamento generi');
   }
 
   static Future<Genere> creaGenere(Genere genere) async {
@@ -58,9 +66,18 @@ class ServizioApi {
     final uri = Uri.parse('$urlBase/film').replace(
       queryParameters: parametri.isNotEmpty ? parametri : null,
     );
+    
     final risposta = await http.get(uri).timeout(_timeout);
-    final dati = jsonDecode(risposta.body);
-    return (dati as List).map((e) => Film.daJson(e as Map<String, dynamic>)).toList();
+    
+    if (risposta.statusCode == 200) {
+      final dati = jsonDecode(risposta.body);
+      if (dati is List) {
+        return dati.map((e) => Film.daJson(e as Map<String, dynamic>)).toList();
+      } else if (dati is Map && dati.containsKey('film')) {
+        return (dati['film'] as List).map((e) => Film.daJson(e as Map<String, dynamic>)).toList();
+      }
+    }
+    return [];
   }
 
   static Future<Film> ottieniFilm(int id) async {
