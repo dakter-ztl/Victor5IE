@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:convert';
-import 'dart:async';
 
 void main() async {
   print('Avvio server sulla porta 3000...');
