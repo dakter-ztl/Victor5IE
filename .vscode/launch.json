@@ -1,0 +1,128 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "chatroom",
+            "cwd": "chatroom",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "chatroom (profile mode)",
+            "cwd": "chatroom",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "chatroom (release mode)",
+            "cwd": "chatroom",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "chrono",
+            "cwd": "chrono",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "chrono (profile mode)",
+            "cwd": "chrono",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "chrono (release mode)",
+            "cwd": "chrono",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "to_do",
+            "cwd": "to_do",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "to_do (profile mode)",
+            "cwd": "to_do",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "to_do (release mode)",
+            "cwd": "to_do",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "zkeep",
+            "cwd": "zkeep",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "zkeep (profile mode)",
+            "cwd": "zkeep",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "zkeep (release mode)",
+            "cwd": "zkeep",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "zkeep2",
+            "cwd": "zkeep2",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "zkeep2 (profile mode)",
+            "cwd": "zkeep2",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "zkeep2 (release mode)",
+            "cwd": "zkeep2",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "inferior_mind_temp",
+            "cwd": "inferior_mind\\inferior_mind_temp",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "inferior_mind_temp (profile mode)",
+            "cwd": "inferior_mind\\inferior_mind_temp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "inferior_mind_temp (release mode)",
+            "cwd": "inferior_mind\\inferior_mind_temp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
