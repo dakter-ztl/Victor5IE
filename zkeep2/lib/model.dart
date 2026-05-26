@@ -1,15 +1,20 @@
 class Note {
-  Note({required this.id, required this.title});
+  Note({required this.id, required this.title, required this.description});
 
   final int? id;
   final String title;
+  final String description;
 
   Map<String, dynamic> toMap() {
-    return {'id': id, 'title': title};
+    return {'id': id, 'title': title, 'description': description};
   }
 
   factory Note.fromMap(Map<String, dynamic> map) {
-    return Note(id: map['id'], title: map['title']);
+    return Note(
+      id: map['id'],
+      title: map['title'],
+      description: map['description'] ?? '',
+    );
   }
 }
 
@@ -17,7 +22,7 @@ class Todo {
   Todo({required this.id, required this.noteId, required this.name, this.checked = false});
 
   final int? id;
-  final int? noteId; 
+  final int noteId; // Chiave esterna collegata alla nota genitore
   final String name;
   bool checked;
 
