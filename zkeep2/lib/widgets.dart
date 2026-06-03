@@ -51,7 +51,7 @@ class TodoItem extends StatelessWidget {
     return ListTile(
       leading: Checkbox(
         value: todo.checked, 
-        onChanged: (_) => onTodoChanged(todo)
+        onChanged: (context) => onTodoChanged(todo)
       ),
       title: Text(
         todo.name, 
