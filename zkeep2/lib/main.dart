@@ -47,7 +47,7 @@ class _NotesPageState extends State<NotesPage> {
 
     showDialog(
       context: context,
-      builder: (_) => AlertDialog(
+      builder: (context) => AlertDialog(
         title: const Text("Nuova nota"),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -151,7 +151,7 @@ class _TodoPageState extends State<TodoPage> {
     textEditingController.text = todo?.name ?? "";
     showDialog(
       context: context, 
-      builder: (_) => AlertDialog(
+      builder: (context) => AlertDialog(
         title: Text(todo == null ? "Nuovo promemoria" : "Modifica promemoria"),
         content: TextField(controller: textEditingController),
         actions: [
