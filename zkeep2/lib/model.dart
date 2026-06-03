@@ -22,7 +22,7 @@ class Todo {
   Todo({required this.id, required this.noteId, required this.name, this.checked = false});
 
   final int? id;
-  final int noteId; // Chiave esterna collegata alla nota genitore
+  final int noteId;
   final String name;
   bool checked;
 
